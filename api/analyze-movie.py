@@ -3,11 +3,10 @@ import json
 import os
 import torch
 from transformers import pipeline
-from typing import List, Dict, Any
 
-# Initialize models (they'll be cached between requests)
 class MovieAnalyzer:
     def __init__(self):
+        # Models will be cached between requests
         self.genre_classifier = pipeline(
             "zero-shot-classification",
             model="facebook/bart-large-mnli"
@@ -26,7 +25,7 @@ class MovieAnalyzer:
             "horror", "sci-fi", "mystery", "adventure", "fantasy", "crime"
         ]
 
-    def analyze_movie_plot(self, plot: str) -> Dict[str, Any]:
+    def analyze_movie_plot(self, plot: str):
         # Genre Prediction
         genre_result = self.genre_classifier(
             plot,
@@ -86,33 +85,59 @@ class MovieAnalyzer:
 # Initialize analyzer (cached between requests)
 analyzer = MovieAnalyzer()
 
-class handler(BaseHTTPRequestHandler):
-    def do_OPTIONS(self):
-        self.send_response(200)
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-        self.end_headers()
-    
-    def do_POST(self):
-        try:
-            content_length = int(self.headers['Content-Length'])
-            post_data = self.rfile.read(content_length)
-            request_data = json.loads(post_data)
-            
-            plot = request_data.get('plot', '').strip()
+def handler(request):
+    try:
+        # Handle CORS preflight
+        if request.method == 'OPTIONS':
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                },
+                'body': json.dumps({'message': 'OK'})
+            }
+        
+        if request.method == 'POST':
+            body = json.loads(request.body)
+            plot = body.get('plot', '').strip()
             
             if len(plot) < 10:
-                self.send_error(400, "Plot summary too short")
-                return
+                return {
+                    'statusCode': 400,
+                    'headers': {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/json',
+                    },
+                    'body': json.dumps({'error': 'Plot summary too short'})
+                }
                 
             analysis = analyzer.analyze_movie_plot(plot)
             
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps(analysis).encode())
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                    'Content-Type': 'application/json',
+                },
+                'body': json.dumps(analysis)
+            }
+        else:
+            return {
+                'statusCode': 405,
+                'headers': {
+                    'Access-Control-Allow-Origin': '*',
+                },
+                'body': json.dumps({'error': 'Method not allowed'})
+            }
             
-        except Exception as e:
-            self.send_error(500, f"Analysis failed: {str(e)}")
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+            },
+            'body': json.dumps({'error': f'Analysis failed: {str(e)}'})
+        }

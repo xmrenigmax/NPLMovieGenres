@@ -17,14 +17,6 @@ const analyzeMovie = async () => {
   setError('');
   
   try {
-    // Simple environment detection
-    const isLocalhost = window.location.hostname === 'localhost' || 
-                        window.location.hostname === '127.0.0.1';
-    
-    const apiUrl = isLocalhost 
-      ? 'http://localhost:8000/analyze-movie'
-      : 'https://your-future-backend-url.vercel.app/api/analyze-movie'; // We'll update this later
-
     const response = await fetch('/api/analyze-movie', {
       method: 'POST',
       headers: {
@@ -40,17 +32,12 @@ const analyzeMovie = async () => {
     const data = await response.json();
     setAnalysis(data);
   } catch (err) {
-    if (window.location.hostname === 'localhost') {
-      setError('Failed to analyze movie plot. Make sure the backend is running on localhost:8000!');
-    } else {
-      setError('Backend service currently unavailable. The AI analysis requires server-side processing.');
-    }
+    setError('AI models are loading... This may take 20-30 seconds on first request. Please try again!');
     console.error('Error:', err);
   } finally {
     setLoading(false);
   }
 };
-
 
   const samplePlots = [
     "A group of astronauts travel through a wormhole in search of a new habitable planet for humanity, confronting time dilation and existential threats in deep space.",
