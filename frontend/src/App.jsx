@@ -25,7 +25,7 @@ const analyzeMovie = async () => {
       ? 'http://localhost:8000/analyze-movie'
       : 'https://your-future-backend-url.vercel.app/api/analyze-movie'; // We'll update this later
 
-    const response = await fetch(apiUrl, {
+    const response = await fetch('/api/analyze-movie', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
