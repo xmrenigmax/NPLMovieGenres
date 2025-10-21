@@ -1,0 +1,13 @@
+/* Simple test - no Tailwind, just plain CSS */
+.test-simple-gradient {
+  background: linear-gradient(135deg, #ff0000, #0000ff) !important;
+  height: 100px;
+  width: 100%;
+}
+
+.test-simple-glass {
+  background: rgba(255, 0, 0, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+  height: 100px;
+  width: 100%;
+}
