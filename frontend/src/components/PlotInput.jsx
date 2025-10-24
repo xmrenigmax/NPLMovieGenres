@@ -41,7 +41,7 @@ export default function PlotInput({ plot, setPlot, loading, analyseMovie, sample
           </div>
 
           <button 
-            onClick={analyzeMovie} 
+            onClick={analyseMovie} 
             disabled={loading || !plot.trim()}
             className="w-full py-5 bg-gradient-to-r from-primary-600 via-primary-700 to-primary-600 text-white font-bold text-xl rounded-2xl neon-glow btn-hover disabled:opacity-50 disabled:cursor-not-allowed"
           >
