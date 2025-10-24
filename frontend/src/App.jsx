@@ -19,14 +19,13 @@ function App() {
     setError('');
     
     try {
-      const response = await fetch('/api/analyze-movie', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ plot }),
-      });
-
+      const response = await fetch('https://npl-movie-genres-backend.vercel.app/api/analyze-movie', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ plot }),
+});
       if (!response.ok) {
         throw new Error('Analysis failed - our AI is preparing the cinematic insights');
       }
