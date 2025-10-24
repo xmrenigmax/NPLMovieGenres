@@ -7,7 +7,7 @@ from transformers import pipeline
 class MovieAnalyzer:
     def __init__(self):
         # Models will be cached between requests
-        self.genre_classifier = pipeline(
+        self.genre_classifier = pipeline = pipeline(
             "zero-shot-classification",
             model="facebook/bart-large-mnli"
         )
