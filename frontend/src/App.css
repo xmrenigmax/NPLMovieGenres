@@ -4,8 +4,13 @@
 
 /* CORE GRADIENTS & EFFECTS */
 .cinema-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 25%, #0284c7 50%, #0ea5e9 75%, #38bdf8 100%);
   background-size: 400% 400%;
+}
+
+/* Add this to App.css */
+.cinema-text-dark {
+  color: #1f2937 !important; /* gray-800 */
 }
 
 .premium-glass {
@@ -16,13 +21,13 @@
 
 .neon-glow {
   box-shadow: 
-    0 0 10px rgba(168, 85, 247, 0.6),
-    0 0 20px rgba(236, 72, 153, 0.4),
-    0 0 30px rgba(96, 165, 250, 0.3);
+    0 0 10px rgba(14, 165, 233, 0.6),
+    0 0 20px rgba(56, 189, 248, 0.4),
+    0 0 30px rgba(186, 230, 253, 0.3);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #055375 0%, #0ea5e9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -104,7 +109,7 @@
 
 .border-glow {
   border: 1px solid transparent;
-  background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c) border-box;
+  background: linear-gradient(45deg, #0ea5e9, #38bdf8, #7dd3fc, #bae6fd) border-box;
 }
 
 /* SCROLLBAR */
@@ -118,10 +123,21 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #764ba2, #f093fb);
+  background: linear-gradient(135deg, #38bdf8, #7dd3fc);
+}
+
+/* Professional sleek enhancements */
+.sleek-input {
+  background: rgba(15, 23, 42, 0.7) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.sleek-input:focus {
+  border-color: #0ea5e9 !important;
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
 }
