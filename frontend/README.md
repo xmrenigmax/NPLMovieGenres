@@ -1,16 +1,65 @@
-# React + Vite
+# Cinema NPL - AI Movie Plot analysis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sophisticated web application that uses Natural Language Processing (NLP) to analyze movie plots and generate cinematic insights, genre predictions, emotional analysis, and Hollywood-ready taglines.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **AI-Powered Analysis**: Advanced NLP models analyze movie plots for genre classification and emotional arcs
+- **Genre Detection**: Identifies top 3 cinematic genres with confidence scores
+- **Emotional Journey**: Analyses the emotional tone and journey of your plot
+- **Hollywood Taglines**: Generates professional movie taglines ready for posters
+- **Sleek Design**: Professional blue/black/white theme with glassmorphism effects
+- **Real-time Results**: Instant analysis with beautiful visual feedback
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- **React 18** - Modern React with hooks
+- **Tailwind CSS** - Utility-first CSS framework
+- **Custom Animations** - CSS keyframes and transitions
+- **Glassmorphism UI** - Modern glass-like design elements
 
-## Expanding the ESLint configuration
+### Backend (Python)
+- **Transformers** - Hugging Face NLP models
+- **PyTorch** - Deep learning framework
+- **Zero-shot Classification** - Genre prediction without training data
+- **Emotion Analysis** - DistilRoBERTa emotion classification
+- **Text Generation** - GPT-2 for tagline creation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## Usage
+
+1. **Enter a Movie Plot**: Describe your movie idea in the text area
+2. **Use Sample Plots**: Try one of the pre-loaded sample plots for inspiration
+3. **Launch Analysis**: Click "🎬 LAUNCH AI ANALYSIS" to process your plot
+4. **View Results**: See genre predictions, emotional analysis, and generated taglines
+
+### Sample Input
+```
+"A group of astronauts travel through a wormhole in search of a new habitable planet for humanity, confronting time dilation and existential threats in deep space."
+```
+
+## Design Features
+
+- **Cinematic Gradient**: Animated blue gradient background
+- **Glassmorphism**: Frosted glass effect containers
+- **Neon Glow**: Subtle glowing borders and buttons
+- **Smooth Animations**: Fade-in, slide-up, and floating animations
+- **Professional Typography**: Clean, readable fonts with gradient text effects
+
+
+### Backend Options
+- **AWS Lambda**: Serverless functions
+
+## Future Enhancements
+
+- [ ] Character arc analysis
+- [ ] Plot structure evaluation
+- [ ] Box office potential prediction
+- [ ] Casting suggestions
+- [ ] Similar movie recommendations
+- [ ] Multi-language support
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
