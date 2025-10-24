@@ -16,7 +16,7 @@ export default function ConfidenceBadge({ confidence }) {
   return (
     <div className="flex flex-col items-center justify-center mb-10 animate-fade-in">
       <div className={`bg-gradient-to-r ${getConfidenceColor(confidence)} text-white px-8 py-4 rounded-2xl font-bold text-xl shadow-2xl neon-glow mb-3`}>
-        🎯 {confidence}% ANALYSIS CONFIDENCE
+        {confidence}% ANALYSIS CONFIDENCE
       </div>
       <div className="text-white/70 font-medium text-sm">
         {getConfidenceText(confidence)} • AI-Powered Insights

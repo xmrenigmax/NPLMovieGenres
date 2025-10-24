@@ -1,11 +1,11 @@
-export default function PlotInput({ plot, setPlot, loading, analyzeMovie, samplePlots, useSamplePlot }) {
+export default function PlotInput({ plot, setPlot, loading, analyseMovie, samplePlots, useSamplePlot }) {
   return (
     <div className="premium-glass rounded-3xl p-8 mb-8 glass-hover animate-slide-up">
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-3 h-3 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"></div>
               <label className="block text-white text-xl font-bold">
-                🎭 YOUR CINEMATIC MASTERPIECE
+                YOUR CINEMATIC MASTERPIECE
               </label>
             </div>
             <textarea
@@ -48,10 +48,10 @@ export default function PlotInput({ plot, setPlot, loading, analyzeMovie, sample
             {loading ? (
               <span className="flex items-center justify-center">
                 <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin mr-3"></div>
-                ANALYZING CINEMATIC POTENTIAL...
+                ANALYSING CINEMATIC POTENTIAL...
               </span>
             ) : (
-              '🎬 LAUNCH AI ANALYSIS'
+              'LAUNCH AI ANALYSIS'
             )}
           </button>
         </div>

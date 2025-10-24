@@ -15,7 +15,7 @@ export default function Header() {
           </h1>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light">
             Transform your movie concepts into cinematic masterpieces. 
-            Advanced AI analyzes plots, detects emotional arcs, and crafts 
+            Advanced AI analyses plots, detects emotional arcs, and crafts 
             <span className="font-semibold text-primary-200"> Hollywood-ready taglines</span> in seconds.
           </p>
           <div className="flex justify-center items-center gap-4 mt-6">

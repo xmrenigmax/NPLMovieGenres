@@ -9,7 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const analyzeMovie = async () => {
+  const analyseMovie = async () => {
     if (!plot.trim()) {
       setError('Please enter a movie plot to begin the cinematic analysis');
       return;
@@ -69,7 +69,7 @@ function App() {
           plot={plot}
           setPlot={setPlot}
           loading={loading}
-          analyzeMovie={analyzeMovie}
+          analyseMovie={analyseMovie}
           samplePlots={samplePlots}
           useSamplePlot={useSamplePlot}
         />
@@ -84,14 +84,6 @@ function App() {
         )}
 
         {analysis && <ResultsDisplay analysis={analysis} />}
-
-        <footer className="text-center mt-16">
-          <div className="premium-glass rounded-2xl p-6 inline-block border-glow">
-            <p className="text-white/80 font-medium text-lg">
-              🚀 Powered by Advanced AI • Built with Cutting-Edge Technology • Hollywood-Grade Insights
-            </p>
-          </div>
-        </footer>
       </div>
     </div>
   );
