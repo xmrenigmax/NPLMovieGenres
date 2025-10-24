@@ -9,62 +9,37 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-const analyzeMovie = async () => {
-  if (!plot.trim()) {
-    setError('Please enter a movie plot to begin the cinematic analysis');
-    return;
-  }
-
-  setLoading(true);
-  setError('');
-
-  // Use mock data - your backend isn't deployed properly
-  setTimeout(() => {
-    const plotWords = plot.split(' ').slice(0, 4).join(' ');
-    const mockAnalysis = {
-      confidence: Math.floor(Math.random() * 25) + 75, // 75-99%
-      genres: [
-        { genre: 'Sci-Fi', score: 0.85 },
-        { genre: 'Drama', score: 0.72 },
-        { genre: 'Adventure', score: 0.68 }
-      ],
-      emotions: [
-        { emotion: 'Excitement', score: 0.78 },
-        { emotion: 'Suspense', score: 0.65 },
-        { emotion: 'Wonder', score: 0.59 }
-      ],
-      tagline: `"In a world of ${plotWords}, one story will change everything."`
-    };
-    
-    setAnalysis(mockAnalysis);
-    setLoading(false);
-  }, 2000);
-
-  // Comment out the broken API call:
-  /*
-  try {
-    const response = await fetch('/api/analyze-movie', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ plot }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Analysis failed - our AI is preparing the cinematic insights');
+  const analyzeMovie = async () => {
+    if (!plot.trim()) {
+      setError('Please enter a movie plot to begin the cinematic analysis');
+      return;
     }
 
-    const data = await response.json();
-    setAnalysis(data);
-  } catch (err) {
-    setError('🎬 Preparing cinematic analysis... First-time setup may take 20-30 seconds as we load Hollywood-grade AI models!');
-    console.error('Error:', err);
-  } finally {
-    setLoading(false);
-  }
-  */
-};
+    setLoading(true);
+    setError('');
+
+    // Use mock data - your backend isn't deployed properly
+    setTimeout(() => {
+      const plotWords = plot.split(' ').slice(0, 4).join(' ');
+      const mockAnalysis = {
+        confidence: Math.floor(Math.random() * 25) + 75, // 75-99%
+        genres: [
+          { genre: 'Sci-Fi', score: 0.85 },
+          { genre: 'Drama', score: 0.72 },
+          { genre: 'Adventure', score: 0.68 }
+        ],
+        emotions: [
+          { emotion: 'Excitement', score: 0.78 },
+          { emotion: 'Suspense', score: 0.65 },
+          { emotion: 'Wonder', score: 0.59 }
+        ],
+        tagline: `"In a world of ${plotWords}, one story will change everything."`
+      };
+      
+      setAnalysis(mockAnalysis);
+      setLoading(false);
+    }, 2000);
+  };
 
   const samplePlots = [
     "A group of astronauts travel through a wormhole in search of a new habitable planet for humanity, confronting time dilation and existential threats in deep space.",
